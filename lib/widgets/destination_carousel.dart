@@ -18,13 +18,18 @@ class DestinationCarousel extends StatelessWidget {
                   letterSpacing: 1.5,
                 ),
               ),
-              Text(
-                'See All',
-                style: TextStyle(
-                  color: Theme.of(context).primaryColor,
-                  fontSize: 16.0,
-                  fontWeight: FontWeight.w600,
-                  letterSpacing: 1.0,
+              GestureDetector(
+                onTap: () {
+                  print('See all');
+                },
+                child: Text(
+                  'See All',
+                  style: TextStyle(
+                    color: Theme.of(context).primaryColor,
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.w600,
+                    letterSpacing: 1.0,
+                  ),
                 ),
               ),
             ],
