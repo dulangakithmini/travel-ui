@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travel_ui/widgets/destination_carousel.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -56,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: ListView(
           padding: EdgeInsets.symmetric(vertical: 30.0),
           // padding: EdgeInsets.all(40.0),
-          children: <Widget>[
+          children: [
             Padding(
               padding: EdgeInsets.only(left: 20.0, right: 120.0),
               child: Text(
@@ -70,21 +71,25 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(height: 20.0),
             Row(
               /// Have a map instead of writing for each index in the _icons list
-              // children: _icons
-              //     .asMap()
-              //     .entries
-              //     .map(
-              //       (MapEntry map) => _buildIcon(map.key),
-              //     )
-              //     .toList(),
+              children: _icons
+                  .asMap()
+                  .entries
+                  .map(
+                    (MapEntry map) => _buildIcon(map.key),
+                  )
+                  .toList(),
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                _buildIcon(0),
-                _buildIcon(1),
-                _buildIcon(2),
-                _buildIcon(3),
-              ],
-            )
+              // children: <Widget>[
+              //   _buildIcon(0),
+              //   _buildIcon(1),
+              //   _buildIcon(2),
+              //   _buildIcon(3),
+              // ],
+            ),
+            SizedBox(
+              height: 20.0,
+            ),
+            DestinationCarousel(),
           ],
         ),
       ),
