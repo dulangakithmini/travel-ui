@@ -22,7 +22,6 @@ class _DestinationScreenState extends State<DestinationScreen> {
           Stack(
             children: [
               Container(
-
                 /// width of the screen
                 height: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
@@ -42,7 +41,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
                     child: Image(
                       image: AssetImage(
 
-                        /// widget.destination is the widget that is passed through when going inside the screen.
+                          /// widget.destination is the widget that is passed through when going inside the screen.
                           widget.destination.imageUrl),
 
                       /// To fill the whole height
@@ -197,7 +196,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                 color: Colors.grey,
                               ),
                             ),
-                            // _buildRatingStars(activity.rating),
+                            _buildRatingStars(activity.rating),
                             SizedBox(height: 10.0),
                             Row(
                               children: [
@@ -242,5 +241,11 @@ class _DestinationScreenState extends State<DestinationScreen> {
     );
   }
 
-  _buildRatingStars(int rating) {}
+  Widget _buildRatingStars(int rating) {
+    String stars = '';
+    for (int i = 0; i < rating; i++) {
+      stars += '⭐ ';
+    }
+    return Text(stars);
+  }
 }
