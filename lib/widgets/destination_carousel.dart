@@ -87,7 +87,7 @@ class DestinationCarousel extends StatelessWidget {
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Padding(
-                            padding: const EdgeInsets.all(10.0),
+                            padding: EdgeInsets.all(10.0),
 
                             /// To add number of activities and destination description
                             child: Column(
@@ -130,13 +130,17 @@ class DestinationCarousel extends StatelessWidget {
                         child: Stack(
                           children: [
                             /// To make the image rounded
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(20.0),
-                              child: Image(
-                                height: 180,
-                                width: 180,
-                                image: AssetImage(destination.imageUrl),
-                                fit: BoxFit.cover,
+                            Hero(
+                              /// Identifier of the image widget
+                              tag: destination.imageUrl,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(20.0),
+                                child: Image(
+                                  height: 180,
+                                  width: 180,
+                                  image: AssetImage(destination.imageUrl),
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
 
