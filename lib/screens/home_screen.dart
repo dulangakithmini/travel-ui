@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:travel_ui/widgets/destination_carousel.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -10,14 +11,14 @@ class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
 
   List<IconData> _icons = [
-    // FontAwesomeIcons.plane,
-    // FontAwesomeIcons.bed,
-    // FontAwesomeIcons.walking,
-    // FontAwesomeIcons.biking,
-    Icons.airplanemode_active,
-    Icons.bed,
-    Icons.nordic_walking_outlined,
-    Icons.bike_scooter,
+    FontAwesomeIcons.plane,
+    FontAwesomeIcons.bed,
+    FontAwesomeIcons.walking,
+    FontAwesomeIcons.biking,
+    // Icons.airplanemode_active,
+    // Icons.bed,
+    // Icons.nordic_walking_outlined,
+    // Icons.bike_scooter,
   ];
 
   Widget _buildIcon(int index) {
