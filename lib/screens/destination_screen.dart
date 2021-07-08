@@ -202,6 +202,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
                             Row(
                               children: [
                                 Container(
+                                  padding: EdgeInsets.all(5.0),
                                   width: 70,
                                   decoration: BoxDecoration(
                                     color: Theme.of(context).accentColor,
@@ -216,6 +217,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                   width: 10.0,
                                 ),
                                 Container(
+                                  padding: EdgeInsets.all(5.0),
                                   width: 70,
                                   decoration: BoxDecoration(
                                     color: Theme.of(context).accentColor,
