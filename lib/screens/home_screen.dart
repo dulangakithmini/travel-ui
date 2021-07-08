@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:travel_ui/widgets/destination_carousel.dart';
+import 'package:travel_ui/widgets/hotel_carousel.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -9,16 +10,13 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
+  int _currentTab = 0;
 
   List<IconData> _icons = [
     FontAwesomeIcons.plane,
     FontAwesomeIcons.bed,
     FontAwesomeIcons.walking,
     FontAwesomeIcons.biking,
-    // Icons.airplanemode_active,
-    // Icons.bed,
-    // Icons.nordic_walking_outlined,
-    // Icons.bike_scooter,
   ];
 
   Widget _buildIcon(int index) {
@@ -43,9 +41,6 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Icon(
           _icons[index],
           size: 25.0,
-          // color: _selectedIndex == index
-          //     ? Theme.of(context).primaryColor
-          //     : Colors.grey,
         ),
       ),
     );
@@ -57,7 +52,6 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SafeArea(
         child: ListView(
           padding: EdgeInsets.symmetric(vertical: 30.0),
-          // padding: EdgeInsets.all(40.0),
           children: [
             Padding(
               padding: EdgeInsets.only(left: 20.0, right: 120.0),
@@ -80,19 +74,51 @@ class _HomeScreenState extends State<HomeScreen> {
                   )
                   .toList(),
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-              // children: <Widget>[
-              //   _buildIcon(0),
-              //   _buildIcon(1),
-              //   _buildIcon(2),
-              //   _buildIcon(3),
-              // ],
             ),
             SizedBox(
               height: 20.0,
             ),
             DestinationCarousel(),
+            SizedBox(
+              height: 20.0,
+            ),
+            HotelCarousel()
           ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentTab,
+        onTap: (int value) {
+          setState(() {
+            _currentTab = value;
+          });
+        },
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.search,
+              size: 30.0,
+            ),
+
+            /// Since it is required to have this for an item.
+            /// gives an error if this isn't written
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.local_pizza,
+              size: 30.0,
+            ),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: CircleAvatar(
+              radius: 15,
+              backgroundImage: NetworkImage('http://i.imgur.com/zL4Krbz.jpg'),
+            ),
+            label: '',
+          ),
+        ],
       ),
     );
   }
